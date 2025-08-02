@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mandrake Play</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8f8f8;
+        }
+        
+        .logo-text {
+            font-weight: 700;
+        }
+        
+        .logo-mandrake {
+            color: #4a5568;
+            margin-bottom: -0.5rem;
+        }
+        
+        .logo-play {
+            color: #e53e3e;
+        }
+        
+        .video-card:hover {
+            transform: scale(1.03);
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-item {
+            position: relative;
+        }
+        
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #e53e3e;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-item:hover::after {
+            width: 100%;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(to right, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+        }
+
+        @media (max-width: 768px) {
+            .hero-video-container {
+                position: relative;
+            }
+            .hero-video-container video {
+                filter: blur(4px);
+            }
+            .hero-content {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 90%;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content {
+                padding-top: 2rem;
+                padding-bottom: 2rem;
+            }
+        }
+
+        .drive-card {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .drive-card:hover {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .drive-icon {
+            color: #4285F4;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- Logo -->
+            <div class="flex flex-col items-start">
+                <div class="logo-text text-2xl md:text-3xl">
+                    <div class="logo-mandrake">MANDRAKE</div>
+                    <div class="logo-play">PLAY</div>
+                </div>
+            </div>
+            
+            <!-- Navigation -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="nav-item text-gray-700 font-semibold hover:text-red-600">O Mandrake Play foi encerrado em Janeiro de 2023.</a>
+                <a href="#" class="nav-item text-red-700 font-semibold hover:text-red-600">AO VIVO</a>
+            </nav>
+        
+        <!-- Mobile Menu -->
+        <div class="md:hidden bg-white py-2 px-4 shadow-md hidden" id="mobileMenu">
+            <div class="flex flex-col space-y-3">
+                <a href="#" class="text-gray-700 font-semibold hover:text-red-600 py-1">Início</a>
+                <a href="#" class="text-gray-700 font-semibold hover:text-red-600 py-1">Documentários</a>
+                <a href="#" class="text-gray-700 font-semibold hover:text-red-600 py-1">Projetos</a>
+                <a href="#" class="text-gray-700 font-semibold hover:text-red-600 py-1">Arquivos</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gray-100">
+        <div class="hero-gradient absolute inset-0"></div>
+        <div class="container mx-auto px-4 py-12 md:py-20 relative hero-video-container">
+            <div class="hero-content flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <h1 class="text-3xl md:text-5xl font-bold text-gray-800 mb-4">OS MANDRAKE TÁ NA ÁREA</h1>
+                    <p class="text-gray-600 mb-6 text-lg">Todas as gravações, seja de uma novela a até um trailer, tudo do Residêncial Valinhos está aqui!</p>
+                    <div class="flex space-x-4">
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative w-full max-w-md">
+                        <video autoplay loop muted playsinline class="w-full h-full object-cover rounded-lg shadow-xl">
+                            <source src="Play_banner.mp4" type="video/webm">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Featured Section -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                <span class="bg-red-600 w-2 h-6 mr-2"></span>
+                Nossas Gravações
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Video Card 1 -->
+                <div class="video-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/400x225" alt="Jornal RV" class="w-full h-48 object-cover">
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300 bg-black bg-opacity-30">
+                            <a href="https://www.youtube.com/watch?v=example" target="_blank">
+                            <button class="bg-red-600 hover:bg-red-600 text-white rounded-full p-3">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            </a>
+                        </div>
+                        <div class="absolute bottom-2 right-2 bg-black bg-opacity-70 text-white text-xs px-2 py-1 rounded">
+                            8 min.
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-800 mb-1">Jornal RV</h3>
+                        <p class="text-gray-600 text-sm">Novidades do Cond. 2022</p>
+                    </div>
+                </div>
+                
+                <!-- Video Card 2 -->
+                <div class="video-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/400x225" alt="Novela A cara da decepção" class="w-full h-48 object-cover">
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300 bg-black bg-opacity-30">
+                            <a href="https://drive.google.com/drive/folders/1-BUHjlH7V2cUQHrXMqDLuJiIDoNLoWqy" target="_blank">
+                            <button class="bg-red-600 hover:bg-red-700 text-white rounded-full p-3">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            </a>
+                        </div>
+                        <div class="absolute bottom-2 right-2 bg-black bg-opacity-70 text-white text-xs px-2 py-1 rounded">
+                            10 min.
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-800 mb-1">A CARA DA DECEPÇÃO</h3>
+                        <p class="text-gray-600 text-sm">Episódio 1 - 2022</p>
+                    </div>
+                </div>
+                
+                <!-- Video Card 3 -->
+                <div class="video-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300">
+                    <div class="relative">
+                        <img src="Play_banner.mp4" alt="O Vulto Preto" class="w-full h-48 object-cover">
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition duration-300 bg-black bg-opacity-30">
+                            <a href="https://drive.google.com/file/d/17HWTHnzrGm2T7T7yRAXacf4XYuJPKMhE/view?usp=drivesdk" target="_blank">
+                            <button class="bg-red-600 hover:bg-red-700 text-white rounded-full p-3">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            </a>
+                        </div>
+                        <div class="absolute bottom-2 right-2 bg-black bg-opacity-70 text-white text-xs px-2 py-1 rounded">
+                            6 min.
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-800 mb-1">O vulto Preto</h3>
+                        <p class="text-gray-600 text-sm">Cadê o sentido? Medo - 2022</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="logo-text text-2xl">
+                        <div class="logo-mandrake">MANDRAKE</div>
+                        <div class="logo-play">PLAY</div>
+                    </div>
+                    <p class="text-gray-600 mt-2 text-sm"></p>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                </div>
+                
+                <div class="border-t border-gray-200 mt-8 pt-6 text-center text-gray-500 text-sm">
+                    <p>© 2022 Mandrake Play. Cond Residêncial Valinhos</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuButton = document.querySelector('.fa-bars').parentNode;
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            menuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
