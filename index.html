@@ -54,7 +54,7 @@
         .hero-gradient {
             background: linear-gradient(to right, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
         }
-
+        
         @media (max-width: 768px) {
             .hero-video-container {
                 position: relative;
@@ -64,10 +64,10 @@
             }
             .hero-content {
                 position: absolute;
-                top: 50%;
+                top: -80px;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                width: 90%;
+                width: 100%;
                 text-align: center;
             }
         }
@@ -78,7 +78,7 @@
                 padding-bottom: 2rem;
             }
         }
-
+        
         .drive-card {
             cursor: pointer;
             transition: all 0.3s ease;
@@ -92,6 +92,43 @@
             color: #4285F4;
             font-size: 2.5rem;
             margin-bottom: 1rem;
+        }
+
+        /* Mobile specific styles */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .desktop-nav {
+                display: none;
+            }
+            
+            .hero-title {
+                font-size: 1.5rem;
+                line-height: 1.2;
+            }
+            
+            .hero-subtitle {
+                font-size: 0.9rem;
+            }
+            
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .video-card {
+                margin-bottom: 1.5rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .footer-logo {
+                margin-bottom: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -107,19 +144,23 @@
                 </div>
             </div>
             
-            <!-- Navigation -->
-            <nav class="hidden md:flex space-x-8">
+            <!-- Desktop Navigation -->
+            <nav class="desktop-nav hidden md:flex space-x-8">
                 <a href="#" class="nav-item text-gray-700 font-semibold hover:text-red-600">O Mandrake Play foi encerrado em Janeiro de 2023.</a>
                 <a href="#" class="nav-item text-red-700 font-semibold hover:text-red-600">AO VIVO</a>
             </nav>
+            
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn md:hidden text-gray-700 focus:outline-none">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
         
         <!-- Mobile Menu -->
         <div class="md:hidden bg-white py-2 px-4 shadow-md hidden" id="mobileMenu">
             <div class="flex flex-col space-y-3">
-                <a href="#" class="text-gray-700 font-semibold hover:text-red-600 py-1">Início</a>
-                <a href="#" class="text-gray-700 font-semibold hover:text-red-600 py-1">Documentários</a>
-                <a href="#" class="text-gray-700 font-semibold hover:text-red-600 py-1">Projetos</a>
-                <a href="#" class="text-gray-700 font-semibold hover:text-red-600 py-1">Arquivos</a>
+                <a href="#" class="text-gray-700 font-semibold hover:text-red-600 py-1">O Mandrake Play foi encerrado em Janeiro de 2023.</a>
+                <a href="#" class="text-red-700 font-semibold hover:text-red-600 py-1">AO VIVO</a>
             </div>
         </div>
     </header>
@@ -130,8 +171,8 @@
         <div class="container mx-auto px-4 py-12 md:py-20 relative hero-video-container">
             <div class="hero-content flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 mb-8 md:mb-0">
-                    <h1 class="text-3xl md:text-5xl font-bold text-gray-800 mb-4">OS MANDRAKE TÁ NA ÁREA</h1>
-                    <p class="text-gray-600 mb-6 text-lg">Todas as gravações, seja de uma novela a até um trailer, tudo do Residêncial Valinhos está aqui!</p>
+                    <h1 class="hero-title text-3xl md:text-5xl font-bold text-gray-800 mb-4">OS MANDRAKE TÁ NA ÁREA</h1>
+                    <p class="hero-subtitle text-gray-600 mb-6 text-lg">Todas as gravações, seja de uma novela a até um trailer, tudo do Residêncial Valinhos está aqui!</p>
                     <div class="flex space-x-4">
                     </div>
                 </div>
@@ -154,7 +195,7 @@
                 <span class="bg-red-600 w-2 h-6 mr-2"></span>
                 Nossas Gravações
             </h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div class="video-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 <!-- Video Card 1 -->
                 <div class="video-card bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300">
                     <div class="relative">
@@ -224,8 +265,8 @@
     <!-- Footer -->
     <footer class="bg-gray-100 py-8">
         <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-6 md:mb-0">
+            <div class="footer-content flex flex-col md:flex-row justify-between items-center">
+                <div class="footer-logo mb-6 md:mb-0">
                     <div class="logo-text text-2xl">
                         <div class="logo-mandrake">MANDRAKE</div>
                         <div class="logo-play">PLAY</div>
@@ -236,7 +277,7 @@
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
                 </div>
                 
-                <div class="border-t border-gray-200 mt-8 pt-6 text-center text-gray-500 text-sm">
+                <div class="border-t border-gray-200 mt-8 pt-6 text-center text-gray-500 text-sm w-full">
                     <p>© 2022 Mandrake Play. Cond Residêncial Valinhos</p>
                 </div>
             </div>
@@ -246,14 +287,35 @@
     <script>
         // Mobile menu toggle
         document.addEventListener('DOMContentLoaded', function() {
-            const menuButton = document.querySelector('.fa-bars').parentNode;
+            const menuButton = document.querySelector('.mobile-menu-btn');
             const mobileMenu = document.getElementById('mobileMenu');
             
             menuButton.addEventListener('click', function() {
                 mobileMenu.classList.toggle('hidden');
+                
+                // Toggle between bars and times icon
+                const icon = menuButton.querySelector('i');
+                if (icon.classList.contains('fa-bars')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!menuButton.contains(event.target) && !mobileMenu.contains(event.target)) {
+                    mobileMenu.classList.add('hidden');
+                    const icon = menuButton.querySelector('i');
+                    if (icon.classList.contains('fa-times')) {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                }
             });
         });
     </script>
 </body>
-
 </html>
